@@ -2,6 +2,7 @@ import { useState } from "react";
 
 const TASTY_API_KEY = process.env.REACT_APP_TASTY_API_KEY
 const TASTY_URL = `https://tasty.p.rapidapi.com/recipes/list?size=10`
+// Can only use header with rapidapi
 const TASTY_OPTIONS = {
 	method: 'GET',
 	headers: {
@@ -14,6 +15,7 @@ function App() {
   const [searchTerm, setSearchTerm] = useState('')
   const [foods, setFoods] = useState([])
 
+  // Handling keyword input
   const handleSearchInputChange = (event) => {
     setSearchTerm(event.target.value)
   }
@@ -44,6 +46,7 @@ function App() {
   }
 
   return (
+    // Main display
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
       <h1>Get Recommendations</h1>
       <h2>Food keyword</h2>
@@ -64,6 +67,7 @@ const FoodList = ({ foods }) => {
   return (
     <div>
       {foods.map((food) => (
+        // Make food recommendations into individual objects
         <FoodItem food={food}/>
       ))}
     </div>
