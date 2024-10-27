@@ -54,7 +54,7 @@ function App() {
         placeholder = "keyword for what to eat"
       />
       <button onClick={handleSearch} style={{display:'flex', justifyContent:'center', alignItems: 'center'}}>Search</button>
-      <button onClick={handleRandom} style = {{marginTop: '10px'}}>Random Suggestions</button>
+      <button onClick={handleRandom} style = {{marginTop: '10px'}}>Random Recommendations</button>
       <FoodList foods={foods}/>
     </div> 
   );
