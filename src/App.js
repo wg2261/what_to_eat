@@ -15,7 +15,7 @@ function App() {
   const [searchTerm, setSearchTerm] = useState('')
   const [foods, setFoods] = useState([])
 
-  // Handling keyword input
+  // Handling and updating keyword input
   const handleSearchInputChange = (event) => {
     setSearchTerm(event.target.value)
   }
@@ -33,7 +33,7 @@ function App() {
     }
   }
 
-  // Getting search random suggestions
+  // Getting search random recommendations
   const handleRandom = async () => {
     try {
       const response = await fetch(TASTY_URL, TASTY_OPTIONS)
@@ -72,9 +72,9 @@ const FoodList = ({ foods }) => {
           <p>Please try another search term</p> 
         </div>
       ) : (
+        // Creates FoodItem container items for each response from API
         foods.map((food) => (
-        // Make food recommendations into individual objects
-        <FoodItem food={food}/>
+          <FoodItem food={food}/>
         ))
       )}
     </div>
@@ -103,7 +103,7 @@ const FoodItem = ({ food }) => {
         padding: '10px'
       }}
     >
-      {/* Image on the left */}
+      // Styles so that image is fixed size on the left of container
       <img
         src={food.thumbnail_url}
         alt={food.thumbnail_alt_text || food.name}
@@ -116,14 +116,14 @@ const FoodItem = ({ food }) => {
         }}
       />
 
-      {/* Food details on the right */}
+      // Styles food details on the right of image
       <div>
         <h3 style={{ margin: '0 0 10px 0' }}>{food.name}</h3>
         <p style={{ margin: '0 0 10px 0', color: '#555' }}>
           {food.description || 'No description available'}
         </p>
 
-        {/* Video URL if available */}
+        // Provides a clickable link to how to make video if available
         {food.video_url && (
           <p>
             <a href={food.video_url} target="_blank" rel="noopener noreferrer">
@@ -132,12 +132,12 @@ const FoodItem = ({ food }) => {
           </p>
         )}
 
-        {/* Nutrition Info Button */}
+        // Nutrition Info Button to display or hide, default is hide
         <button onClick={toggleNutrition} style={{ marginTop: '10px' }}>
           {showNutrition ? 'Hide Nutrition' : 'Show Estimated Nutrition'}
         </button>
 
-        {/* Nutrition Info */}
+        // Nutrition Info if available
         {showNutrition && food.nutrition ? (
           <div style={{ marginTop: '10px', color: '#555' }}>
             <span>Calories: {food.nutrition.calories} kcal</span><br />
