@@ -4,6 +4,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## Description
 This app is a React-based web application that utilizes the Tasty API to recommend food to users based on a keyword, or randomly output 10 from the API. If there are additional description and video link about the dish, it will be displayed with a button to show estimated nutrient information if desired.
 The problem it solves is of course, what to eat.
+Note: What is displayed is what is returned from API, current version does not display new food dishes unless API changes what is returned from current calling methods
 
 ## Setup
 1. Clone this repository or download the source code. `git clone https://github.com/wg2261/what_to_eat.git`

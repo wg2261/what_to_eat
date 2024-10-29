@@ -103,7 +103,7 @@ const FoodItem = ({ food }) => {
         padding: '10px'
       }}
     >
-      // Styles so that image is fixed size on the left of container
+      {/* Styles so that image is fixed size on the left of container */}
       <img
         src={food.thumbnail_url}
         alt={food.thumbnail_alt_text || food.name}
@@ -116,14 +116,14 @@ const FoodItem = ({ food }) => {
         }}
       />
 
-      // Styles food details on the right of image
+      {/* Styles food details on the right of image */}
       <div>
         <h3 style={{ margin: '0 0 10px 0' }}>{food.name}</h3>
         <p style={{ margin: '0 0 10px 0', color: '#555' }}>
           {food.description || 'No description available'}
         </p>
 
-        // Provides a clickable link to how to make video if available
+        {/* Provides a clickable link to how to make video if available */}
         {food.video_url && (
           <p>
             <a href={food.video_url} target="_blank" rel="noopener noreferrer">
@@ -132,12 +132,12 @@ const FoodItem = ({ food }) => {
           </p>
         )}
 
-        // Nutrition Info Button to display or hide, default is hide
+        {/* Nutrition Info Button to display or hide, default is hide */}
         <button onClick={toggleNutrition} style={{ marginTop: '10px' }}>
           {showNutrition ? 'Hide Nutrition' : 'Show Estimated Nutrition'}
         </button>
 
-        // Nutrition Info if available
+        {/* Nutrition Info if available */}
         {showNutrition && food.nutrition ? (
           <div style={{ marginTop: '10px', color: '#555' }}>
             <span>Calories: {food.nutrition.calories} kcal</span><br />
