@@ -66,10 +66,17 @@ function App() {
 const FoodList = ({ foods }) => {
   return (
     <div>
-      {foods.map((food) => (
+      {foods.length == 0 ? (
+        <div>
+          <p>Can't find anything</p> 
+          <p>Please try another search term</p> 
+        </div>
+      ) : (
+        foods.map((food) => (
         // Make food recommendations into individual objects
         <FoodItem food={food}/>
-      ))}
+        ))
+      )}
     </div>
   );
 };
